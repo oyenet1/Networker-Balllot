@@ -1,100 +1,76 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs" data-toggle="tooltip" data-placement="top" title="Hooray!">Docs</a>
-                    <a href="https://laracasts.com" data-toggle="tooltip" data-placement="top" title="Hooray!">Laracasts</a>
-                    <a href="https://laravel-news.com" data-toggle="tooltip" data-placement="top" title="Hooray!">News</a>
-                    <a href="https://blog.laravel.com" data-toggle="tooltip" data-placement="top" title="Hooray!">Blog</a>
-                    <a href="https://nova.laravel.com" data-toggle="tooltip" data-placement="top" title="Hooray!">Nova</a>
-                    <a href="https://forge.laravel.com" data-toggle="tooltip" data-placement="top" title="Hooray!">Forge</a>
-                    <a href="https://vapor.laravel.com" data-toggle="tooltip" data-placement="top" title="Hooray!">Vapor</a>
-                    <a href="https://github.com/laravel/laravel" data-toggle="tooltip" data-placement="top" title="Hooray!">GitHub</a>
+@extends('layouts.app')
+@section('tilte', 'Networker Ballot')
+@section('content')
+    <div class="container-fluid bg-white">
+        <div class="container">
+            <div class="row justify-content-center p-5">
+                <img src="/image/vote-logo.png" alt="" class="w-25 d-block rounded-circle">
+                <h3 class="neue w-100 text-center m-2">Online Voting System</h3>
+                <p class="big text-center text-primary">Safe. &nbsp; Reliable. &nbsp; Fast. &nbsp; Secure</p>
+                <div class="w-100  text-center">
+                    <a href="" class="text-center btn btn-success btn-sm" style="clear: both">
+                        <i class="fas fa-tag mr-1"></i> Cast Your Vote</a>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+
+    {{-- slides of candidates --}}
+    <div class="container-fluid bg-milk4">
+        <div class="container p-5">
+            <div class="row justify-content-center bg-milk4 p-3">
+                <div class="col-md-12">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-4 round">
+                                        <div class="rounded bg-white p-4">
+                                            <div class=""><img src="/image/vote-logo.png" alt="imagename"
+                                                    class="mx-auto candidates d-block"></div>
+                                            <div class="w-100 d-block text-center">
+                                                <h2>Person one</h2>
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure architecto
+                                                    a quos, velit eveniet, ipsum fuga non totam dignissimos veniam nihil
+                                                    deserunt ea quam sint quas omnis, impedit adipisci beatae.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 round">
+                                        <div class="rounded bg-white p-4">
+                                            <div class=""><img src="/image/vote-logo.png" alt="imagename"
+                                                    class="mx-auto candidates d-block"></div>
+                                            <div class="w-100 d-block text-center">
+                                                <h2>Person one</h2>
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure architecto
+                                                    a quos, velit eveniet, ipsum fuga non totam dignissimos veniam nihil
+                                                    deserunt ea quam sint quas omnis, impedit adipisci beatae.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 round">
+                                        <div class="rounded bg-white p-4">
+                                            <div class=""><img src="/image/vote-logo.png" alt="imagename"
+                                                    class="mx-auto candidates d-block"></div>
+                                            <div class="w-100 d-block text-center">
+                                                <h2>Person one</h2>
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure architecto
+                                                    a quos, velit eveniet, ipsum fuga non totam dignissimos veniam nihil
+                                                    deserunt ea quam sint quas omnis, impedit adipisci beatae.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
