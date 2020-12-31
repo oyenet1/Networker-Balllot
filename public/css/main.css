@@ -15080,3 +15080,27 @@ be a descendant of the grid when it is being dragged.
   color: #666;
 }
 
+img.candidates {
+  max-width: 60% !important;
+}
+
+.bg-milk {
+  background-color: #fafafa !important;
+}
+
+.bg-milk1 {
+  background-color: #f0f0f0 !important;
+}
+
+.bg-milk2 {
+  background-color: #e6e6e6 !important;
+}
+
+.bg-milk3 {
+  background-color: gainsboro !important;
+}
+
+.bg-milk4 {
+  background-color: #d2d2d2 !important;
+}
+

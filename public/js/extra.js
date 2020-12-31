@@ -106,7 +106,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\chris\seven - Copy\resources\js\extra.js */"./resources/js/extra.js");
+module.exports = __webpack_require__(/*! C:\github\Networker-Balllot\resources\js\extra.js */"./resources/js/extra.js");
 
 
 /***/ })

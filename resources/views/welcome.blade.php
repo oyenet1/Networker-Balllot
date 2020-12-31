@@ -16,9 +16,9 @@
     </div>
 
     {{-- slides of candidates --}}
-    <div class="container-fluid bg-milk4">
+    <div class="container-fluid bg-milk2">
         <div class="container p-5">
-            <div class="row justify-content-center bg-milk4 p-3">
+            <div class="row justify-content-center p-3">
                 <div class="col-md-12">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -50,13 +50,15 @@
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure architecto
                                                     a quos, velit eveniet, ipsum fuga non totam dignissimos veniam nihil
                                                     deserunt ea quam sint quas omnis, impedit adipisci beatae.</p>
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-4 round">
                                         <div class="rounded bg-white p-4">
-                                            <div class=""><img src="/image/vote-logo.png" alt="imagename"
-                                                    class="mx-auto candidates d-block"></div>
+                                            <div class="">
+                                                <img src="/image/vote-logo.png" alt="imagename"
+                                                    class="mx-auto candidates d-block">
+                                            </div>
                                             <div class="w-100 d-block text-center">
                                                 <h2>Person one</h2>
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure architecto

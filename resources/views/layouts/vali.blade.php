@@ -12,7 +12,8 @@
 
     <!-- Scripts -->
 
-    {{-- if you comment this js files uncomment the ones below at body --}}
+    {{-- if you comment this js files uncomment the ones below at body
+    --}}
     {{-- <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/extra.js') }}" defer></script> --}}
 
@@ -21,6 +22,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    @yield('styles')
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Main CSS-->
@@ -97,7 +99,8 @@
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
                     <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                     <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();"><i
                                 class="fa fa-sign-out fa-lg"></i> Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -114,25 +117,43 @@
         <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
                 src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
             <div>
-                <p class="app-sidebar__user-name">John Doe</p>
-                <p class="app-sidebar__user-designation">Frontend Developer</p>
+                <p class="app-sidebar__user-name">{{ Auth::user()->name }}</p>
+                <p class="app-sidebar__user-designation"></p>
             </div>
         </div>
         <ul class="app-menu">
-            <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">Dashboard</span></a></li>
-            <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">Charts</span></a></li>
+            <li><a class="app-menu__item active" href="{{ route('admin.index') }}"><i
+                        class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a>
+            </li>
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">UI Elements</span><i
+                        class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Profile</span><i
                         class="treeview-indicator fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i>
-                            Bootstrap Elements</a></li>
+                            Update Profile</a></li>
                     <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
-                            rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
-                    <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
-                    <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a>
+                            rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> See your votes</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-pencil"></i><span class="app-menu__label">Election</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a class="treeview-item" href="{{ route('offices.index') }}"><i class="icon fa fa-window-minimize"></i>See
+                            All Position</a></li>
+                    <li>
+                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                            rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> Candidates</a>
+                    </li>
+                    <li>
+                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                            rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> Cast Vote</a>
+                    </li>
+                    <li>
+                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                            rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> Results</a>
                     </li>
                 </ul>
             </li>
@@ -141,18 +162,9 @@
 
     {{-- main page --}}
     <main class="app-content">
-        <div class="app-title">
-            <div>
-                <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-                <p>A free and open source Bootstrap 4 admin template</p>
-            </div>
-            <ul class="app-breadcrumb breadcrumb">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            </ul>
-        </div>
         @yield('content')
     </main>
+
     <!-- Essential javascripts for application to work-->
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
@@ -227,6 +239,8 @@
         }
 
     </script>
+
+    @yield('scripts')
 </body>
 
 </html>
