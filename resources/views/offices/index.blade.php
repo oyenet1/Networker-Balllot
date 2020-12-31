@@ -27,26 +27,25 @@
 
                 </form>
             </div>
-          <div class="card-body">
-            <table class="table ">
+          <div class="card-body table-responsive">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>#</th>
+                        <th>Position Name</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($offices as $office)
                     <tr>
                         <td scope="row"></td>
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td scope="row"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @empty
+                        <h5>No offices Yet, Kindly add position</h5>
+                    @endforelse
                 </tbody>
             </table>
           </div>
