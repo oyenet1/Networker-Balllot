@@ -15,7 +15,9 @@ class OfficeController extends Controller
     public function index()
     {
         //
-        return view('offices.index');
+
+        $offices = Office::all();
+        return view('offices.index', compact('offices'));
     }
 
     /**
@@ -37,6 +39,13 @@ class OfficeController extends Controller
     public function store(Request $request)
     {
         //
+
+        request()->validate(['name' => ['required', 'max:50', 'unique:offices'],]);
+        $office = new Office();
+        $office->name = request()->name;
+        $office->save();
+
+        return redirect()->back()->with('success', $request->name . ' Has been added to position Succesfully');
     }
 
     /**
@@ -47,18 +56,13 @@ class OfficeController extends Controller
      */
     public function show(Office $office)
     {
-        //
+        $office->load('candidates')->orderBy('votes', 'desc');
+        return view('office.show', compact('office'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Office  $office
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Office $office)
     {
-        //
+        return view('office.edit', compact('office'));
     }
 
     /**
