@@ -184,7 +184,7 @@ return [
              */
             'abort' => [
                 'code' => 403,
-                'message' => 'User does not have any of the necessary access rights.'
+                'message' => 'You does not have any of the necessary access rights.'
             ],
 
             /**
@@ -197,7 +197,7 @@ return [
                 'url' => '/home',
                 'message' => [
                     'key' => 'error',
-                    'content' => 'User does not have any of the necessary access rights.'
+                    'content' => 'You does not have any of the necessary access rights.'
                 ]
             ]
         ]
