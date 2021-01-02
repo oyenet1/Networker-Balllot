@@ -84,7 +84,7 @@
                                 </td>
                               </tr>
                             @empty
-                                <h4 class="text-warning">No Candidate Yet, Kindly add Candidate</h4>
+                                <h4 class="text-warning">No Candidate Yet, Kindly add Candidate to {{ $office->name }}</h4>
                             @endforelse
                         </tbody>
                     </table>
