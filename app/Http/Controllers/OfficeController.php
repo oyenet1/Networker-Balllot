@@ -57,12 +57,12 @@ class OfficeController extends Controller
     public function show(Office $office)
     {
         $office->load('candidates')->orderBy('votes', 'desc');
-        return view('office.show', compact('office'));
+        return view('offices.show', compact('office'));
     }
 
     public function edit(Office $office)
     {
-        return view('office.edit', compact('office'));
+        return view('offices.edit', compact('office'));
     }
 
     /**
