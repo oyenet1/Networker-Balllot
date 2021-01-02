@@ -15,6 +15,12 @@ class CreateCandidatesTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('office_id')->constrained()
+            ->onDelete('cascade');
+            $table->string('name')->unique();
+            $table->string('image');
+            $table->text('details')->nullable();
+            $table->integer('votes')->default('0');
             $table->timestamps();
         });
     }

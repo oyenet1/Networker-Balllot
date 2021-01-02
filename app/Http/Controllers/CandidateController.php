@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Office;
 use App\Candidate;
 use Illuminate\Http\Request;
 

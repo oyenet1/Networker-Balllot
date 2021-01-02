@@ -9,4 +9,8 @@ class Office extends Model
     //
 protected $guarded = [];
 
+public function candidates() {
+    return $this->hasMany(Candidate::class);
+}
+
 }
