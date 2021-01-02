@@ -6,8 +6,11 @@
             <p>Add, edit, browse and delete positions here</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-diamond fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="#">Positions</a></li>
+            <li class="breadcrumb-item"> 
+                <button type="button" class="btn btn-primary">
+                Messages <span class="badge badge-light"> {{ $offices->count() }} </span>
+              </button> </li>
+            <li class="breadcrumb-item d-none"><a href="#">Positions</a></li>
         </ul>
 
         {{-- success message --}}
@@ -47,6 +50,9 @@
                     </form>
                 </div>
                 <div class="card-body table-responsive">
+                    <button type="button" class="btn btn-primary mb-2">
+                        Position(s) <span class="badge badge-light m-1"> {{ $offices->count() }} </span>
+                      </button>
                     <table class="table table-striped">
                         <thead>
                             <tr>

@@ -75,6 +75,11 @@ class OfficeController extends Controller
     public function update(Request $request, Office $office)
     {
         //
+        $data = request()->validate(['name' => 'required']);
+        $office->update([
+            'name' => $data['name'],
+        ]);
+        return redirect()->route('offices.index')->with('success', 'Position updated successfully');
     }
 
     /**
@@ -86,5 +91,7 @@ class OfficeController extends Controller
     public function destroy(Office $office)
     {
         //
+        $office->delete();
+        return redirect()->route('offices.index')->with('success', 'Position has been deleted');
     }
 }

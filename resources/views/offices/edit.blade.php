@@ -36,8 +36,8 @@
                                 <input class="form-control" id="name" name="name" type="text"
                                     value="{{ $office->name ?? old('name') }}">
                                 <div class="input-group-append bg-white"><button type="submit"
-                                        class="input-group-text px-md-5 px-lg-7 px-3 bg-primary"> <i
-                                            class="fa fa-paper-plane text-white" aria-hidden="true"></i> Update</button></div>
+                                        class="input-group-text px-md-5 px-lg-7 px-3 bg-primary text-white"> <i
+                                            class="fa fa-paper-plane text-white mr-2" aria-hidden="true"></i> Update</button></div>
                             </div>
 
                             @error('name')
