@@ -4,7 +4,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1 class="text-primary"><i class="fa fa-diamond text-danger"></i> Candidates</h1>
+            <h1 class="text-primary"><i class="fa fa-user-plus text-dark"></i> Candidates</h1>
             <p>Add and browse Candidates here</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">

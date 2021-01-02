@@ -1,5 +1,5 @@
 @extends('layouts.vali')
-@section('title', $office->name ?? Auth::user()->name)
+@section('title', "candidate" ?? Auth::user()->name)
 
 @section('content')
     <div class="app-title">
@@ -42,7 +42,6 @@
                         </div>
                         <div class="div p-2">
                             <p class="display-5"><span class="font-weight-bold">Name:</span> {{ $candidate->name }} </p>
-                            <p class="display-5"><span class="font-weight-bold">Position:</span> {{ $candidate->office->name }} </p>
                             <p class="display-5"><span class="font-weight-bold">Details:</span> {{ $candidate->details }} </p>
                             <p class="display-5"><span class="font-weight-bold">Total Vote:</span>  <span class="badge badge-primary">{{ $candidate->votes }} </span> </p>
                         </div>

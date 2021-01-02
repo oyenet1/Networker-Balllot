@@ -77,7 +77,7 @@
                                             class=" mr-2"> <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                             Edit
                                         </a>
-                                        <a href="/offices/{{ $office->id }}/candidate/create "
+                                        <a href="{{ route('candidate.create', $office->id) }} "
                                             class="btn btn-success btn-sm ml-2 mr-2" data-toggle="tooltip" data-placement="top"
                                             title="Add New Candidate to {{  $office->name}}">
                                             <i class="fa fa-plus" aria-hidden="true"></i> Add

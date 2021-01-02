@@ -4,14 +4,14 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1 class="text-primary"><i class="fa fa-diamond text-danger"></i> Candidates</h1>
-            <p>Add and browse Candidates here</p>
+            <h1 class="text-primary"><i class="fa fa-user-secret text-dark"></i>  {{ $candidate->name }} </h1>
+            <p>Update Candidates here</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"> 
                 <a href=" {{ route('offices.index') }} " class="btn-dark btn mr-2"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back </a>
                 <button type="button" class="btn btn-primary">
-                Candidate <span class="badge badge-light"> {{ $office->candidates()->count() }} </span>
+                Votes <span class="badge badge-light"> {{ $candidate->votes }} </span>
               </button> </li>
             <li class="breadcrumb-item d-none"><a href="#">Candidates</a></li>
         </ul>
@@ -35,14 +35,15 @@
 
                  </div>
                  <div class="card-body">
-                    <form method="POST" action="/office/{{ $office->id }}/candidate" class="mt-0" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('candidate.update',[$office->id, $candidate->name] )}}" class="mt-0" enctype="multipart/form-data">
+                        @method('PUT')
                     @csrf
                       {{-- form for candidates --}}
                     @include('admin.candidates')
         
                     <div class="form-group mb-0 text-center">
                       <button type="submit" class="btn btn-outline-primary text-center">
-                        Add Candidate
+                        Update Candidate
                       </button>
                     </div>
                   </form>
