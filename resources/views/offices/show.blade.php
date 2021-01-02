@@ -1,18 +1,19 @@
 @extends('layouts.vali')
-@section('title', $office->name ?? Auth::user->name)
+@section('title', $office->name ?? Auth::user()->name)
 
 @section('content')
     <div class="app-title">
         <div>
-            <h1 class="text-primary"><i class="fa fa-diamond text-danger"></i> Positions</h1>
-            <p>Add, edit, browse and delete positions here</p>
+            <h1 class="text-primary"><i class="fa fa-diamond text-danger"></i> Candidates</h1>
+            <p>Add and browse Candidates here</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"> 
+                <a href=" {{ route('offices.index') }} " class="btn-dark btn mr-2"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back </a>
                 <button type="button" class="btn btn-primary">
-                Messages <span class="badge badge-light"> {{ $offices->count() }} </span>
+                Candidate <span class="badge badge-light"> {{ $office->candidates()->count() }} </span>
               </button> </li>
-            <li class="breadcrumb-item d-none"><a href="#">Positions</a></li>
+            <li class="breadcrumb-item d-none"><a href="#">Candidates</a></li>
         </ul>
 
         {{-- success message --}}
@@ -30,70 +31,60 @@
         <div class="row justify-content-center">
             <div class="card w-100">
                 <div class="card-header">
-                    <form action="{{ route('offices.store') }}" method="post">
+                    <form method="POST" action="/office/{{ $office->id }}/candidate" class="mt-0" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">Add Candidate to {{ $office->name }}</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text bg-white"> <i
-                                            class="fas fa-chair text-primary"></i> </span></div>
-                                <input class="form-control" id="name" name="name" type="text"
-                                    placeholder="Name of Position">
-                                <div class="input-group-append bg-white"><button type="submit"
-                                        class="input-group-text px-md-5 px-lg-7 px-3 bg-primary"> <i
-                                            class="fa fa-paper-plane text-white" aria-hidden="true"></i> </button></div>
-                            </div>
-
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                          {{-- form for candidates --}}
+                        @include('admin.candidates')
+            
+                        <div class="form-group mb-0 text-center">
+                          <button type="submit" class="btn btn-outline-primary text-center">
+                            Add Candidate
+                          </button>
                         </div>
-
-                    </form>
+                      </form>
                 </div>
                 <div class="card-body table-responsive">
                     <button type="button" class="btn btn-primary mb-2">
-                        Position(s) <span class="badge badge-light m-1"> {{ $offices->count() }} </span>
+                       Candidate(s) <span class="badge badge-light m-1"> {{ $office->candidates()->count() }} </span>
                       </button>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Position Name</th>
-                                <th>Action</th>
-                            </tr>
+                                <th>No</th>
+                                <th class="w-40">Candidate Name</th>
+                                <th class="text-center">Total Vote</th>
+                                <th class="action text-center">Action</th>
+                              </tr>
                         </thead>
                         <tbody>
-                            @forelse ($offices as $office)
-                                <tr>
-                                    <td scope="row">{{ $loop->iteration }}</td>
-                                    <td class="text-capitalize"> {{ $office->name }} </td>
-                                    <td class="d-flex">
-                                        <a href="{{ route('offices.show', $office->id) }}" class="btn btn-warning btn-sm mr-2"
-                                            class=" mr-2" data-toggle="tooltip" data-placement="left"
-                                            title="View all  {{ $office->name }}  Candidate">
-                                            <i class="fa fa-eye" aria-hidden="true"></i> View
-                                        </a>
-                                        <a href=" {{ route('offices.edit', $office->id) }} " class="btn btn-primary btn-sm"
-                                            class=" mr-2"> <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                                            Edit
-                                        </a>
-                                        <a href="/offices/{{ $office->id }}/candidate/create "
-                                            class="btn btn-success btn-sm ml-2 mr-2" data-toggle="tooltip" data-placement="top"
-                                            title="Add New Candidate to {{  $office->name}}">
-                                            <i class="fa fa-plus" aria-hidden="true"></i> Add
-                                        </a>
-                                        <form action=" {{ route('offices.destroy', $office->id) }} " method="post"
-                                            class="float-left">
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-danger btn-sm"> <i class="fa fa-eraser" aria-hidden="true"></i> Delete</button>
-                                            @csrf
-                                        </form>
-                                    </td>
-                                </tr>
+                            @forelse ($office->candidates as $candidate)
+                            <tr>
+                                <td> {{ $loop->iteration }} </td>
+                                <td> {{ $candidate->name }} </td>
+                                <td class="text-center"> {{ $candidate->votes }} </td>
+                                <td class="d-flex justify-content-center">
+                                  <a href=" {{ route('candidate.show', [ $office->id, $candidate->name] ) }} "
+                                    class="btn btn-warning btn-sm mr-2" class="" data-toggle="tooltip" data-placement="left"
+                                    title="view">
+                                    <i class="fas fa-eye"></i>
+                                  </a>
+                                  <a href=" {{ route('candidate.edit', [ $office->id, $candidate->name] ) }} "
+                                    class="btn btn-primary btn-sm" class="" data-toggle="tooltip" data-placement="top"
+                                    title="Edit Details">
+                                    Edit
+                                  </a>
+                                  <form action=" {{ route('candidate.destroy', [ $office->id, $candidate->name] ) }} "
+                                    method="post" class="ml-1" data-toggle="tooltip" data-placement="right" title="Delete">
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                      <i class="fas fa-cut "></i>
+                                    </button>
+                                    @csrf
+                                  </form>
+                                </td>
+                              </tr>
                             @empty
-                                <h4 class="text-warning">No position Yet, Kindly add position</h4>
+                                <h4 class="text-warning">No Candidate Yet, Kindly add Candidate</h4>
                             @endforelse
                         </tbody>
                     </table>

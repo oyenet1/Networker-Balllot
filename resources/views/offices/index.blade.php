@@ -1,4 +1,5 @@
 @extends('layouts.vali')
+@section('title', Auth::user()->name)
 @section('content')
     <div class="app-title">
         <div>
@@ -8,14 +9,14 @@
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"> 
                 <button type="button" class="btn btn-primary">
-                Messages <span class="badge badge-light"> {{ $offices->count() }} </span>
+                Position(s) <span class="badge badge-light"> {{ $offices->count() }} </span>
               </button> </li>
             <li class="breadcrumb-item d-none"><a href="#">Positions</a></li>
         </ul>
 
         {{-- success message --}}
         @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible fade show text-capitalize" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>

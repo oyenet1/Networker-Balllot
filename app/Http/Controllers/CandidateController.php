@@ -62,7 +62,7 @@ class CandidateController extends Controller
         ));
 
 
-        return redirect()->route('office.show', $office->id)->with('success', $data['name'] . ' has been add to ' . $office->name . ' candidate add more candidate(s) or go back to position');
+        return redirect()->route('offices.show', $office->id)->with('success', $data['name'] . ' has been add to ' . $office->name . ' candidate add more candidate(s) or go back to position');
     }
 
     public function show(Office $office, Candidate $candidate)
@@ -95,11 +95,11 @@ class CandidateController extends Controller
             $data,
             ['image' => $imageName]
         ));
-        return redirect()->route('office.show', $office->id)->with('success', 'Candidate updated successfully');
+        return redirect()->route('offices.show', $office->id)->with('success', 'Candidate updated successfully');
     }
     public function destroy(Office $office, Candidate $candidate)
     {
         $candidate = $candidate->delete();
-        return redirect()->route('office.show', $office->id)->with('success', 'Candidate has been deleted');
+        return redirect()->route('offices.show', $office->id)->with('success', 'Candidate has been deleted');
     }
 }
