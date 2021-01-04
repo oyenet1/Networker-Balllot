@@ -36,7 +36,7 @@
                     <div class="card-body d-flex flex-wrap text-capitalize">
                         <div class="div bg-milk1 py-2">
                             <div class="w-50 d-block mx-auto">
-                                <img src="{{ asset('uploads/candidate/' . $candidate->image) }}"
+                                <img src="{{ asset('uploads/' . $candidate->image) }}"
                                     alt="{{ $candidate->name }}" class="img-fluid rounded-circle border">
                             </div>
                         </div>

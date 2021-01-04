@@ -13,8 +13,8 @@ $factory->define(Candidate::class, function (Faker $faker) {
         //
         'office_id' => random_int(1, count($total)),
         'name' => $faker->name,
-        'details' => $faker->sentence(15),
-        'image' => $faker->image(public_path('uploads'),640,480, null, false),
+        'details' => $faker->paragraph(4),
+        'image' => $faker->image(public_path('uploads'),300,300, null, false),
 
     ];
 });

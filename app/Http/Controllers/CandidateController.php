@@ -88,7 +88,7 @@ class CandidateController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $imageName = time() . '.' . $extension;
-            $file->move('uploads/candidate/', $imageName);
+            $file->move('uploads/', $imageName);
         }
 
         $candidates = $candidate->update(array_merge(
