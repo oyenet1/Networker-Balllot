@@ -131,7 +131,7 @@
                 <ul class="treeview-menu">
                     <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i>
                             Update Profile</a></li>
-                    <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                    <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/"
                             rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> See your votes</a>
                     </li>
                 </ul>
@@ -144,15 +144,15 @@
                         <a class="treeview-item" href="{{ route('offices.index') }}"><i class="icon fa fa-window-minimize"></i>See
                             All Position</a></li>
                     <li>
-                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/"
                             rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> Candidates</a>
                     </li>
                     <li>
-                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                        <a class="treeview-item" href="{{ route('voter.vote') }}"
                             rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> Cast Vote</a>
                     </li>
                     <li>
-                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
+                        <a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/"
                             rel="noopener"><i class="icon fa fa-window-minimize" aria-hidden="true"></i> Results</a>
                     </li>
                 </ul>

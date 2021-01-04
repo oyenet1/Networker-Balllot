@@ -33,3 +33,7 @@ Route::get('/office/{office}/candidate/{candidate:name}', 'CandidateController@s
 Route::get('/office/{office}/candidate/{candidate:name}/edit', 'CandidateController@edit')->name('candidate.edit');
 Route::put('/office/{office}/candidate/{candidate:name}', 'CandidateController@update')->name('candidate.update');
 Route::delete('/office/{office}/candidate/{candidate:name}', 'CandidateController@destroy')->name('candidate.destroy');
+
+// votes 
+Route::get('/vote', 'VoteController@vote')->name('voter.vote');
+Route::post('/vote', 'VoteController@store')->name('voter.store');
