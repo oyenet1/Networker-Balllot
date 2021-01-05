@@ -15,6 +15,5 @@ $factory->define(Candidate::class, function (Faker $faker) {
         'name' => $faker->name,
         'details' => $faker->paragraph(4),
         'image' => $faker->image(public_path('uploads'),300,300, null, false),
-
     ];
 });
